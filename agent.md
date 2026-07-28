@@ -42,3 +42,15 @@
 - 커밋 메시지: `docs: move task docs and translate project guides to Korean`
 - 변경 파일: `AGENTS.md`, `agent.md`, `mds/0. AGENTS요청.md`, `Task/01-게임씬-기초구성.md`, `Task/02-웹캠-포즈-파이프라인.md`, `Task/03-동작-인식.md`, `Task/04-캐릭터-러너-코어.md`, `Task/05-스폰-점수-체력.md`, `Task/06-게임흐름-UI-결과.md`
 - 메모: 이후 작업 기준 문서는 모두 한국어 기준으로 유지한다.
+
+### 2026-07-28 16:55
+- 변경 요약: 1단계 씬 기초 구성을 자동화하기 위해 씬 빌더와 카메라 추적, 씬 참조 스크립트를 추가했다.
+- 커밋 메시지: `feat: add task 01 scene foundation builder`
+- 변경 파일: `PassportUnity/Assets/Scripts/Editor/Task01SceneBuilder.cs`, `PassportUnity/Assets/Scripts/Runtime/ThirdPersonFollowCamera.cs`, `PassportUnity/Assets/Scripts/Runtime/SceneFoundationReferences.cs`, `Task/01-게임씬-기초구성.md`, `agent.md`
+- 메모: 현재 Unity 프로젝트가 이미 열려 있어 별도 배치 실행은 차단되었고, 열린 에디터에서 스크립트 리컴파일 또는 메뉴 실행 후 실제 씬 반영을 확인해야 한다.
+
+### 2026-07-28 16:58
+- 변경 요약: 배치 실행으로 `SampleScene`에 1단계 씬 골격을 실제 반영하고 Task 01을 완료 처리했다.
+- 커밋 메시지: `feat: build task 01 sample scene foundation`
+- 변경 파일: `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/01-게임씬-기초구성.md`, `agent.md`
+- 메모: `Environment`, `Character`, `Managers`, `Canvas`, `EventSystem`, 레인 기준점, 임시 랜드마크, `Finish Trigger`, 카메라 추적 기준점이 씬에 생성된 것을 확인했다.
