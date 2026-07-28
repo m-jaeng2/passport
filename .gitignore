@@ -6,9 +6,18 @@
 /[Ll]ogs/
 /[Uu]serSettings/
 /MemoryCaptures/
+/PassportUnity/[Ll]ibrary/
+/PassportUnity/[Tt]emp/
+/PassportUnity/[Oo]bj/
+/PassportUnity/[Bb]uild/
+/PassportUnity/[Bb]uilds/
+/PassportUnity/[Ll]ogs/
+/PassportUnity/[Uu]serSettings/
+/PassportUnity/MemoryCaptures/
 
 # Addressables
 /ServerData/
+/PassportUnity/ServerData/
 
 # Visual Studio / Rider
 /.vs/
@@ -25,11 +34,29 @@
 /*.mdb
 /*.opendb
 /*.VC.db
+/PassportUnity/*.csproj
+/PassportUnity/*.sln
+/PassportUnity/*.slnx
+/PassportUnity/*.user
+/PassportUnity/*.tmp
+/PassportUnity/*.pidb
+/PassportUnity/*.booproj
+/PassportUnity/*.svd
+/PassportUnity/*.pdb
+/PassportUnity/*.mdb
+/PassportUnity/*.opendb
+/PassportUnity/*.VC.db
 
 # Unity generated meta for IDE configs
 /*.pidb.meta
 /*.pdb.meta
 /*.mdb.meta
+/PassportUnity/*.pidb.meta
+/PassportUnity/*.pdb.meta
+/PassportUnity/*.mdb.meta
 
 # Crash reports
 /sysinfo.txt
+/unity-task01.log
+/PassportUnity/.vs/
+/PassportUnity/.vscode/

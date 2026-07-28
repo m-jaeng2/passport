@@ -54,3 +54,9 @@
 - 커밋 메시지: `feat: build task 01 sample scene foundation`
 - 변경 파일: `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/01-게임씬-기초구성.md`, `agent.md`
 - 메모: `Environment`, `Character`, `Managers`, `Canvas`, `EventSystem`, 레인 기준점, 임시 랜드마크, `Finish Trigger`, 카메라 추적 기준점이 씬에 생성된 것을 확인했다.
+
+### 2026-07-28 17:05
+- 변경 요약: 하위 Unity 프로젝트 구조에 맞게 `.gitignore`를 보강해 `Library`, `Logs`, `UserSettings`, `csproj`, 배치 로그가 다시 추적되지 않도록 정리했다.
+- 커밋 메시지: `chore: update gitignore for nested Unity project`
+- 변경 파일: `.gitignore`, `agent.md`
+- 메모: 현재 저장소는 `PassportUnity/`가 하위 폴더이므로 루트 기준 무시 규칙만으로는 생성물이 충분히 제외되지 않았다.
