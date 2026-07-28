@@ -50,7 +50,7 @@ namespace RhythmPassport.Editor
             fitter.aspectRatio = 16f / 9f;
 
             var statusText = ConfigureText(cameraUiRoot.transform, "Device Status Text", new Vector2(0.84f, 0.84f), new Vector2(320f, 36f), 20, "웹캠 준비 중");
-            var recognitionText = ConfigureText(cameraUiRoot.transform, "Recognition Status Text", new Vector2(0.84f, 0.16f), new Vector2(320f, 40f), 24, "플레이어 인식 대기");
+            var recognitionText = ConfigureText(cameraUiRoot.transform, "Recognition Status Text", new Vector2(0.84f, 0.16f), new Vector2(320f, 40f), 24, "포즈 인식 대기");
             var landmarkText = ConfigureText(cameraUiRoot.transform, "Landmark Status Text", new Vector2(0.84f, 0.74f), new Vector2(320f, 140f), 18, "랜드마크 없음", TextAnchor.UpperLeft);
 
             references.webcamPreviewImage = previewImage;
@@ -83,15 +83,21 @@ namespace RhythmPassport.Editor
                 poseManager = poseManagerObject.AddComponent<PoseDetectionManager>();
             }
 
-            var debugProvider = poseManagerObject.GetComponent<DebugPoseProvider>();
-            if (debugProvider == null)
+            var mediaPipeProvider = poseManagerObject.GetComponent<MediaPipePoseProvider>();
+            if (mediaPipeProvider == null)
             {
-                debugProvider = poseManagerObject.AddComponent<DebugPoseProvider>();
+                mediaPipeProvider = poseManagerObject.AddComponent<MediaPipePoseProvider>();
+            }
+
+            var debugProvider = poseManagerObject.GetComponent<DebugPoseProvider>();
+            if (debugProvider != null)
+            {
+                Object.DestroyImmediate(debugProvider);
             }
 
             poseManager.webcamManager = webcamManager;
             poseManager.webcamUi = webcamUi;
-            poseManager.poseProvider = debugProvider;
+            poseManager.poseProvider = mediaPipeProvider;
             poseManager.minimumConfidence = 0.6f;
             poseManager.readyHoldDuration = 2f;
         }

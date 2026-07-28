@@ -58,5 +58,9 @@
 # Crash reports
 /sysinfo.txt
 /unity-task01.log
+/unity-task02.log
+/unity-mediapipe.log
+/unity-mediapipe-build.log
 /PassportUnity/.vs/
 /PassportUnity/.vscode/
+/vendor/

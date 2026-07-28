@@ -43,5 +43,12 @@ namespace RhythmPassport.Runtime
             frame.SetLandmark(new PoseLandmark(PoseLandmarkId.RightWrist, new Vector2(0.66f + wristXOffset, 0.42f + wristYOffset), landmarkConfidence));
             return true;
         }
+
+        public override string GetProviderStatus()
+        {
+            return webcamManager != null && webcamManager.IsRunning
+                ? "디버그 포즈를 생성 중입니다."
+                : "웹캠이 시작되면 디버그 포즈를 생성합니다.";
+        }
     }
 }

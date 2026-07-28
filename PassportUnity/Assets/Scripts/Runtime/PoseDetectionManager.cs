@@ -1,6 +1,5 @@
 using System.Text;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RhythmPassport.Runtime
 {
@@ -43,7 +42,7 @@ namespace RhythmPassport.Runtime
         {
             if (webcamManager == null || poseProvider == null)
             {
-                UpdateUi("포즈 공급자 없음", "랜드마크 없음");
+                UpdateUi("포즈 공급자가 없습니다.", "랜드마크 없음");
                 CurrentFrame = null;
                 readyTimer = 0f;
                 IsReady = false;
@@ -65,7 +64,7 @@ namespace RhythmPassport.Runtime
                 CurrentFrame = null;
                 readyTimer = 0f;
                 IsReady = false;
-                UpdateUi("플레이어 인식 대기", "랜드마크 없음");
+                UpdateUi(poseProvider.GetProviderStatus(), "랜드마크 없음");
             }
         }
 
@@ -99,10 +98,10 @@ namespace RhythmPassport.Runtime
             builder.Append(frame.IsSimulated ? "디버그 포즈" : "실시간 포즈");
 
             AppendLandmark(builder, frame, PoseLandmarkId.Nose, "코");
-            AppendLandmark(builder, frame, PoseLandmarkId.LeftShoulder, "왼어깨");
-            AppendLandmark(builder, frame, PoseLandmarkId.RightShoulder, "오른어깨");
-            AppendLandmark(builder, frame, PoseLandmarkId.LeftWrist, "왼손목");
-            AppendLandmark(builder, frame, PoseLandmarkId.RightWrist, "오른손목");
+            AppendLandmark(builder, frame, PoseLandmarkId.LeftShoulder, "왼쪽 어깨");
+            AppendLandmark(builder, frame, PoseLandmarkId.RightShoulder, "오른쪽 어깨");
+            AppendLandmark(builder, frame, PoseLandmarkId.LeftWrist, "왼쪽 손목");
+            AppendLandmark(builder, frame, PoseLandmarkId.RightWrist, "오른쪽 손목");
             return builder.ToString();
         }
 

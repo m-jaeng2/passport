@@ -66,3 +66,9 @@
 - 커밋 메시지: `feat: add task 02 webcam pose pipeline scaffold`
 - 변경 파일: `PassportUnity/Assets/Scripts/Editor/Task02WebcamPoseBuilder.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamUiReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseLandmark.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseFrame.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseProviderBehaviour.cs`, `PassportUnity/Assets/Scripts/Runtime/DebugPoseProvider.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseDetectionManager.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/02-웹캠-포즈-파이프라인.md`, `agent.md`
 - 메모: 실제 외부 포즈 엔진 연동 전까지는 디버그 포즈 공급자가 얼굴, 어깨, 손목 정규화 좌표를 제공하며, 웹캠 프리뷰와 인식 준비 상태 UI는 실동작한다.
+
+### 2026-07-28 17:35
+- 변경 요약: MediaPipe Unity Plugin을 로컬 tarball 패키지로 연결하고, 디버그 공급자를 실제 `MediaPipePoseProvider`로 교체해 `SampleScene`에 반영했다.
+- 커밋 메시지: `feat: connect MediaPipe pose provider`
+- 변경 파일: `.gitignore`, `PassportUnity/Packages/manifest.json`, `PassportUnity/Packages/packages-lock.json`, `PassportUnity/Assets/Scripts/Runtime/MediaPipePoseProvider.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseDetectionManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseProviderBehaviour.cs`, `PassportUnity/Assets/Scripts/Runtime/DebugPoseProvider.cs`, `PassportUnity/Assets/Scripts/Editor/Task02WebcamPoseBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/02-웹캠-포즈-파이프라인.md`, `agent.md`
+- 메모: Unity는 외부 tarball URL을 직접 패키지 버전으로 받지 못해 `vendor/com.github.homuler.mediapipe-0.16.3.tgz`를 로컬 tarball 의존성으로 연결했다. 이 파일은 용량이 커서 `.gitignore`로 제외했고, 저장소에는 `manifest.json`과 `packages-lock.json` 기준 설정만 남긴다. Unity 배치 실행으로 `MediaPipePoseProvider`가 `SampleScene`에 붙은 것까지 확인했다.

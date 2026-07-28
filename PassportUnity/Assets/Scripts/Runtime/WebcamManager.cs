@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RhythmPassport.Runtime
 {
@@ -23,6 +22,8 @@ namespace RhythmPassport.Runtime
         public bool IsRunning => webcamTexture != null && webcamTexture.isPlaying;
         public bool HasCameraPermissionIssue => startupFailed;
         public string ActiveDeviceName { get; private set; } = string.Empty;
+        public bool IsPreviewMirrored => mirrorHorizontally;
+        public bool IsPreviewVerticallyMirrored => webcamTexture != null && webcamTexture.videoVerticallyMirrored;
 
         private void Start()
         {

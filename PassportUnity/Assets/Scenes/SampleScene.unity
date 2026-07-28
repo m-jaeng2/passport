@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113730848}
   - component: {fileID: 113730850}
-  - component: {fileID: 113730849}
+  - component: {fileID: 113730851}
   m_Layer: 0
   m_Name: PoseDetectionManager
   m_TagString: Untagged
@@ -555,22 +555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2143826640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &113730849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113730847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed048f6e90cdd864390abe84ccb6ff9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RhythmPassport.Runtime.DebugPoseProvider
-  animateWrists: 1
-  animationAmplitude: 0.04
-  animationSpeed: 1.5
-  landmarkConfidence: 0.98
 --- !u!114 &113730850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,9 +569,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RhythmPassport.Runtime.PoseDetectionManager
   webcamManager: {fileID: 2084868869}
   webcamUi: {fileID: 1075063095}
-  poseProvider: {fileID: 113730849}
+  poseProvider: {fileID: 113730851}
   minimumConfidence: 0.6
   readyHoldDuration: 2
+--- !u!114 &113730851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113730847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da7fc36cae263c4eb519ac6023a6efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RhythmPassport.Runtime.MediaPipePoseProvider
+  modelAssetName: pose_landmarker_full.bytes
+  numPoses: 1
+  minPoseDetectionConfidence: 0.5
+  minPosePresenceConfidence: 0.5
+  minTrackingConfidence: 0.5
+  mirrorToPreview: 1
 --- !u!1 &144056909
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +966,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD50C\uB808\uC774\uC5B4 \uC778\uC2DD \uB300\uAE30"
+  m_Text: "\uD3EC\uC988 \uC778\uC2DD \uB300\uAE30"
 --- !u!222 &340046981
 CanvasRenderer:
   m_ObjectHideFlags: 0

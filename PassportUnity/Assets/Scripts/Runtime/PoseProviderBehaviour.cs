@@ -6,5 +6,6 @@ namespace RhythmPassport.Runtime
     {
         public abstract void Initialize(WebcamManager webcamManager);
         public abstract bool TryGetPoseFrame(out PoseFrame frame);
+        public abstract string GetProviderStatus();
     }
 }
