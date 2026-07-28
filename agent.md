@@ -1,38 +1,44 @@
-# Agent Change Log
+# 작업 변경 기록
 
-This file tracks the major project changes I make while we build.
-For each meaningful code update, I will log the summary, proposed commit message, and changed files here.
+이 문서는 프로젝트를 진행하면서 제가 만든 주요 변경 사항을 기록한다.
+의미 있는 작업이 생길 때마다 변경 요약, 커밋 메시지, 수정 파일을 여기에 남긴다.
 
-## Log Format
+## 기록 형식
 
 ### YYYY-MM-DD HH:MM
-- Summary:
-- Commit message:
-- Changed files:
-- Notes:
+- 변경 요약:
+- 커밋 메시지:
+- 변경 파일:
+- 메모:
 
-## Entries
+## 기록 내역
 
 ### 2026-07-28 15:20
-- Summary: Prepared the repository for Unity project uploads and ongoing change tracking.
-- Commit message: `chore: add Unity gitignore and agent change log`
-- Changed files: `.gitignore`, `agent.md`
-- Notes: Local `git` is not available in this environment, so GitHub updates are done through the GitHub connector.
+- 변경 요약: Unity 프로젝트 업로드 준비를 위해 기본 `.gitignore`와 변경 기록 문서를 추가했다.
+- 커밋 메시지: `chore: add Unity gitignore and agent change log`
+- 변경 파일: `.gitignore`, `agent.md`
+- 메모: 현재 환경에는 로컬 `git` 실행 파일이 없어 GitHub 커넥터로 원격 반영을 진행했다.
 
 ### 2026-07-28 15:35
-- Summary: Added a working guide for sub-agents based on the current Unity project structure.
-- Commit message: `docs: define sub-agent working rules`
-- Changed files: `mds/0. AGENTS요청.md`, `agent.md`
-- Notes: The guidance focuses on tracked Unity files, generated-file exclusions, logging, and commit message format.
+- 변경 요약: 현재 Unity 프로젝트 구조를 기준으로 서브에이전트 작업 규칙 문서를 추가했다.
+- 커밋 메시지: `docs: define sub-agent working rules`
+- 변경 파일: `mds/0. AGENTS요청.md`, `agent.md`
+- 메모: 추적 대상 파일, 생성 파일 제외 규칙, 기록 방식, 커밋 메시지 형식을 정리했다.
 
 ### 2026-07-28 16:25
-- Summary: Converted the project plan into an execution guide with a root AGENTS file and six step-by-step task trackers.
-- Commit message: `docs: add project agents guide and phased task files`
-- Changed files: `AGENTS.md`, `mds/tasks/task-01-game-scene-foundation.md`, `mds/tasks/task-02-webcam-and-pose-pipeline.md`, `mds/tasks/task-03-motion-detection.md`, `mds/tasks/task-04-character-runner-core.md`, `mds/tasks/task-05-spawn-score-health.md`, `mds/tasks/task-06-game-flow-ui-results.md`, `agent.md`
-- Notes: The task split follows the planning document while keeping checklist, inspector, test, and open-issue sections ready for ongoing updates.
+- 변경 요약: 프로젝트 기획서를 실행용 문서로 나누어 루트 `AGENTS.md`와 단계별 Task 문서 초안을 만들었다.
+- 커밋 메시지: `docs: add project agents guide and phased task files`
+- 변경 파일: `AGENTS.md`, `mds/tasks/task-01-game-scene-foundation.md`, `mds/tasks/task-02-webcam-and-pose-pipeline.md`, `mds/tasks/task-03-motion-detection.md`, `mds/tasks/task-04-character-runner-core.md`, `mds/tasks/task-05-spawn-score-health.md`, `mds/tasks/task-06-game-flow-ui-results.md`, `agent.md`
+- 메모: 체크리스트, Inspector 메모, 테스트 항목, 미해결 이슈까지 바로 업데이트할 수 있게 구성했다.
 
 ### 2026-07-28 16:30
-- Summary: Clarified the gameplay document so future implementation follows world-fixed spawning and a single success-condition interpretation.
-- Commit message: `docs: clarify gameplay rules in agents guide`
-- Changed files: `AGENTS.md`, `agent.md`
-- Notes: Added guardrails for world-space objects, finish-trigger success, time-limit interpretation, and combo-rule follow-up.
+- 변경 요약: 게임 규칙 해석이 갈리지 않도록 월드 고정 오브젝트와 성공 조건 기준을 `AGENTS.md`에 명시했다.
+- 커밋 메시지: `docs: clarify gameplay rules in agents guide`
+- 변경 파일: `AGENTS.md`, `agent.md`
+- 메모: 월드 좌표 고정, `Finish Trigger`, 시간 제한, 콤보 규칙 후속 정리를 기준으로 잡았다.
+
+### 2026-07-28 16:40
+- 변경 요약: Task 문서를 루트 `Task` 폴더로 옮기고, 제가 작성한 운영 문서를 전부 한국어로 통일했다.
+- 커밋 메시지: `docs: move task docs and translate project guides to Korean`
+- 변경 파일: `AGENTS.md`, `agent.md`, `mds/0. AGENTS요청.md`, `Task/01-게임씬-기초구성.md`, `Task/02-웹캠-포즈-파이프라인.md`, `Task/03-동작-인식.md`, `Task/04-캐릭터-러너-코어.md`, `Task/05-스폰-점수-체력.md`, `Task/06-게임흐름-UI-결과.md`
+- 메모: 이후 작업 기준 문서는 모두 한국어 기준으로 유지한다.
