@@ -18,3 +18,9 @@ For each meaningful code update, I will log the summary, proposed commit message
 - Commit message: `chore: add Unity gitignore and agent change log`
 - Changed files: `.gitignore`, `agent.md`
 - Notes: Local `git` is not available in this environment, so GitHub updates are done through the GitHub connector.
+
+### 2026-07-28 15:35
+- Summary: Added a working guide for sub-agents based on the current Unity project structure.
+- Commit message: `docs: define sub-agent working rules`
+- Changed files: `mds/0. AGENTS요청.md`, `agent.md`
+- Notes: The guidance focuses on tracked Unity files, generated-file exclusions, logging, and commit message format.
