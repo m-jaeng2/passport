@@ -60,3 +60,9 @@
 - 커밋 메시지: `chore: update gitignore for nested Unity project`
 - 변경 파일: `.gitignore`, `agent.md`
 - 메모: 현재 저장소는 `PassportUnity/`가 하위 폴더이므로 루트 기준 무시 규칙만으로는 생성물이 충분히 제외되지 않았다.
+
+### 2026-07-28 17:12
+- 변경 요약: 2단계 웹캠 포즈 파이프라인의 기초 구현으로 웹캠 프리뷰, 카메라 UI, 포즈 데이터 구조, 포즈 공급자 추상화, 디버그 랜드마크 공급자를 추가했다.
+- 커밋 메시지: `feat: add task 02 webcam pose pipeline scaffold`
+- 변경 파일: `PassportUnity/Assets/Scripts/Editor/Task02WebcamPoseBuilder.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamUiReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseLandmark.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseFrame.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseProviderBehaviour.cs`, `PassportUnity/Assets/Scripts/Runtime/DebugPoseProvider.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseDetectionManager.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/02-웹캠-포즈-파이프라인.md`, `agent.md`
+- 메모: 실제 외부 포즈 엔진 연동 전까지는 디버그 포즈 공급자가 얼굴, 어깨, 손목 정규화 좌표를 제공하며, 웹캠 프리뷰와 인식 준비 상태 UI는 실동작한다.
