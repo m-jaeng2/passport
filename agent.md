@@ -72,3 +72,15 @@
 - 커밋 메시지: `feat: connect MediaPipe pose provider`
 - 변경 파일: `.gitignore`, `PassportUnity/Packages/manifest.json`, `PassportUnity/Packages/packages-lock.json`, `PassportUnity/Assets/Scripts/Runtime/MediaPipePoseProvider.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseDetectionManager.cs`, `PassportUnity/Assets/Scripts/Runtime/PoseProviderBehaviour.cs`, `PassportUnity/Assets/Scripts/Runtime/DebugPoseProvider.cs`, `PassportUnity/Assets/Scripts/Editor/Task02WebcamPoseBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/02-웹캠-포즈-파이프라인.md`, `agent.md`
 - 메모: Unity는 외부 tarball URL을 직접 패키지 버전으로 받지 못해 `vendor/com.github.homuler.mediapipe-0.16.3.tgz`를 로컬 tarball 의존성으로 연결했다. 이 파일은 용량이 커서 `.gitignore`로 제외했고, 저장소에는 `manifest.json`과 `packages-lock.json` 기준 설정만 남긴다. Unity 배치 실행으로 `MediaPipePoseProvider`가 `SampleScene`에 붙은 것까지 확인했다.
+
+### 2026-07-28 17:50
+- 변경 요약: 랜드마크를 게임 입력으로 변환하는 `Task 03` 동작 인식 파이프라인을 추가하고 `MotionManager`에 제스처 판정기를 연결했다.
+- 커밋 메시지: `feat: add motion gesture recognition pipeline`
+- 변경 파일: `PassportUnity/Assets/Scripts/Runtime/MotionGesture.cs`, `PassportUnity/Assets/Scripts/Runtime/MotionRecognitionManager.cs`, `PassportUnity/Assets/Scripts/Runtime/WebcamUiReferences.cs`, `PassportUnity/Assets/Scripts/Editor/Task03MotionRecognitionBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/03-동작-인식.md`, `agent.md`
+- 메모: 기본 자세 복귀 전 입력 잠금, 양손 모으기 홀드 시간, 좌우 제스처/점프/일시정지 재사용 대기시간을 모두 `MotionRecognitionManager`에서 처리한다. Unity 배치 실행으로 `Gesture Status Text`와 `MotionRecognitionManager`가 `SampleScene`에 반영된 것을 확인했다.
+
+### 2026-07-28 18:15
+- 변경 요약: `Task 04` 러너 코어를 추가해 제스처 입력이 자동 전진, 3레인 이동, 점프, 일시정지로 이어지도록 연결했다.
+- 커밋 메시지: `feat: add runner movement core`
+- 변경 파일: `.gitignore`, `PassportUnity/Assets/Scripts/Runtime/RunnerRunState.cs`, `PassportUnity/Assets/Scripts/Runtime/CharacterLaneRunner.cs`, `PassportUnity/Assets/Scripts/Editor/Task04RunnerCoreBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/04-캐릭터-러너-코어.md`, `agent.md`
+- 메모: 러너 이동은 `Transform` 기반 보간으로 구현해 전진, 레인 변경, 점프가 동시에 유지되도록 맞췄다. `HandsTogether`는 일시정지 토글로 연결했고, `Task04RunnerCoreBuilder`로 `CharacterLaneController`와 카메라 추적 참조를 일관되게 세팅할 수 있게 정리했다.

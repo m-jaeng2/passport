@@ -10,5 +10,6 @@ namespace RhythmPassport.Runtime
         public Text deviceStatusText;
         public Text recognitionStatusText;
         public Text landmarkStatusText;
+        public Text gestureStatusText;
     }
 }
