@@ -84,3 +84,9 @@
 - 커밋 메시지: `feat: add runner movement core`
 - 변경 파일: `.gitignore`, `PassportUnity/Assets/Scripts/Runtime/RunnerRunState.cs`, `PassportUnity/Assets/Scripts/Runtime/CharacterLaneRunner.cs`, `PassportUnity/Assets/Scripts/Editor/Task04RunnerCoreBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/04-캐릭터-러너-코어.md`, `agent.md`
 - 메모: 러너 이동은 `Transform` 기반 보간으로 구현해 전진, 레인 변경, 점프가 동시에 유지되도록 맞췄다. `HandsTogether`는 일시정지 토글로 연결했고, `Task04RunnerCoreBuilder`로 `CharacterLaneController`와 카메라 추적 참조를 일관되게 세팅할 수 있게 정리했다.
+
+### 2026-07-28 19:05
+- 변경 요약: `Task 05` 게임플레이 루프를 추가해 레인 기반 장애물·아이템 생성, 충돌, 점수·콤보·체력, 풀링 구조를 연결했다.
+- 커밋 메시지: `feat: add spawn score and health loop`
+- 변경 파일: `.gitignore`, `PassportUnity/Assets/Scripts/Runtime/CharacterLaneRunner.cs`, `PassportUnity/Assets/Scripts/Runtime/GameplayHudReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/TrackObjectType.cs`, `PassportUnity/Assets/Scripts/Runtime/SpawnedTrackObject.cs`, `PassportUnity/Assets/Scripts/Runtime/RunnerCollisionRelay.cs`, `PassportUnity/Assets/Scripts/Runtime/ScoreManager.cs`, `PassportUnity/Assets/Scripts/Runtime/HealthManager.cs`, `PassportUnity/Assets/Scripts/Runtime/CollisionManager.cs`, `PassportUnity/Assets/Scripts/Runtime/SpawnManager.cs`, `PassportUnity/Assets/Scripts/Editor/Task05GameplayLoopBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/05-스폰-점수-체력.md`, `agent.md`
+- 메모: `SpawnManager`는 항상 한 개 이상의 안전 레인을 남기는 웨이브 생성 규칙과 타입별 오브젝트 풀을 사용한다. `RunnerCollisionRelay`와 `CollisionManager`가 장애물 피해, 점프 회피, 아이템 획득을 처리하고, `ScoreManager`와 `HealthManager`는 `Gameplay UI`에 점수, 콤보, 체력을 바로 반영한다.

@@ -29,6 +29,10 @@ namespace RhythmPassport.Runtime
         public RunnerRunState RunState { get; private set; } = RunnerRunState.Ready;
         public bool IsPaused => RunState == RunnerRunState.Paused;
         public bool IsFinished => RunState == RunnerRunState.Finished;
+        public int CurrentLaneIndex => currentLaneIndex;
+        public float CurrentForwardDistance => forwardDistance;
+        public float CurrentJumpOffset { get; private set; }
+        public bool IsAirborne => CurrentJumpOffset > 0.1f;
         public string DebugStatus { get; private set; } = "러너 준비 중";
 
         private void Awake()
@@ -233,6 +237,8 @@ namespace RhythmPassport.Runtime
                     jumpTimer = 0f;
                 }
             }
+
+            CurrentJumpOffset = jumpOffset;
 
             sceneReferences.characterRoot.position = new Vector3(
                 startPosition.x + currentLaneX,
