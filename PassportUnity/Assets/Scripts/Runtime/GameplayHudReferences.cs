@@ -8,6 +8,9 @@ namespace RhythmPassport.Runtime
         public Text scoreText;
         public Text comboText;
         public Text healthText;
+        public Text timerText;
+        public Text bestScoreText;
+        public Text judgmentText;
         public Text spawnStatusText;
     }
 }

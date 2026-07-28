@@ -90,3 +90,9 @@
 - 커밋 메시지: `feat: add spawn score and health loop`
 - 변경 파일: `.gitignore`, `PassportUnity/Assets/Scripts/Runtime/CharacterLaneRunner.cs`, `PassportUnity/Assets/Scripts/Runtime/GameplayHudReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/TrackObjectType.cs`, `PassportUnity/Assets/Scripts/Runtime/SpawnedTrackObject.cs`, `PassportUnity/Assets/Scripts/Runtime/RunnerCollisionRelay.cs`, `PassportUnity/Assets/Scripts/Runtime/ScoreManager.cs`, `PassportUnity/Assets/Scripts/Runtime/HealthManager.cs`, `PassportUnity/Assets/Scripts/Runtime/CollisionManager.cs`, `PassportUnity/Assets/Scripts/Runtime/SpawnManager.cs`, `PassportUnity/Assets/Scripts/Editor/Task05GameplayLoopBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/05-스폰-점수-체력.md`, `agent.md`
 - 메모: `SpawnManager`는 항상 한 개 이상의 안전 레인을 남기는 웨이브 생성 규칙과 타입별 오브젝트 풀을 사용한다. `RunnerCollisionRelay`와 `CollisionManager`가 장애물 피해, 점프 회피, 아이템 획득을 처리하고, `ScoreManager`와 `HealthManager`는 `Gameplay UI`에 점수, 콤보, 체력을 바로 반영한다.
+
+### 2026-07-28 19:35
+- 변경 요약: `Task 06` 게임 흐름과 UI를 추가해 자세 준비, 카운트다운, 일시정지, 카메라 오류, 결과 패널, 최고 점수 저장까지 한 씬에서 마무리했다.
+- 커밋 메시지: `feat: add full game flow ui loop`
+- 변경 파일: `PassportUnity/Assets/Scripts/Runtime/CharacterLaneRunner.cs`, `PassportUnity/Assets/Scripts/Runtime/GameplayHudReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/GameResultType.cs`, `PassportUnity/Assets/Scripts/Runtime/GameFlowUiReferences.cs`, `PassportUnity/Assets/Scripts/Runtime/FinishTriggerRelay.cs`, `PassportUnity/Assets/Scripts/Runtime/GameplayFlowUiActions.cs`, `PassportUnity/Assets/Scripts/Runtime/GameplayFlowManager.cs`, `PassportUnity/Assets/Scripts/Editor/Task06GameFlowBuilder.cs`, `PassportUnity/Assets/Scenes/SampleScene.unity`, `Task/06-게임흐름-UI-결과.md`, `agent.md`
+- 메모: `GameplayFlowManager`는 포즈 준비 완료 후 자동 시작, 3초 카운트다운, 타이머 종료, 체력 소진 종료, 결승선 도착 종료, 카메라 장시간 인식 실패 종료를 모두 처리한다. `GameFlowUiReferences`와 `GameplayFlowUiActions`로 결과 패널 버튼과 각 상태 패널을 연결하고, 최고 점수는 `PlayerPrefs`에 저장한다.

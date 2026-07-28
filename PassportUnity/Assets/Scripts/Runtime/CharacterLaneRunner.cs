@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RhythmPassport.Runtime
@@ -16,6 +17,7 @@ namespace RhythmPassport.Runtime
         [Header("Jump")]
         [Min(0f)] public float jumpHeight = 1.4f;
         [Min(0.05f)] public float jumpDuration = 0.65f;
+        public bool autoStart = true;
 
         private readonly float[] laneOffsets = new float[3];
         private Vector3 startPosition;
@@ -25,6 +27,8 @@ namespace RhythmPassport.Runtime
         private float jumpTimer;
         private int currentLaneIndex = 1;
         private bool isJumping;
+
+        public event Action RunFinished;
 
         public RunnerRunState RunState { get; private set; } = RunnerRunState.Ready;
         public bool IsPaused => RunState == RunnerRunState.Paused;
@@ -67,7 +71,10 @@ namespace RhythmPassport.Runtime
         private void Start()
         {
             InitializeRunner();
-            BeginRun();
+            if (autoStart)
+            {
+                BeginRun();
+            }
         }
 
         private void Update()
@@ -107,6 +114,28 @@ namespace RhythmPassport.Runtime
             DebugStatus = "자동 전진 시작";
         }
 
+        public void Pause()
+        {
+            if (RunState != RunnerRunState.Running)
+            {
+                return;
+            }
+
+            RunState = RunnerRunState.Paused;
+            DebugStatus = "일시정지";
+        }
+
+        public void Resume()
+        {
+            if (RunState != RunnerRunState.Paused)
+            {
+                return;
+            }
+
+            RunState = RunnerRunState.Running;
+            DebugStatus = "다시 시작";
+        }
+
         public void TogglePause()
         {
             if (RunState == RunnerRunState.Finished)
@@ -114,19 +143,32 @@ namespace RhythmPassport.Runtime
                 return;
             }
 
-            RunState = RunState == RunnerRunState.Paused
-                ? RunnerRunState.Running
-                : RunnerRunState.Paused;
+            if (RunState == RunnerRunState.Paused)
+            {
+                Resume();
+                return;
+            }
 
-            DebugStatus = RunState == RunnerRunState.Paused
-                ? "일시정지"
-                : "다시 시작";
+            Pause();
         }
 
         public void FinishRun()
         {
+            if (RunState == RunnerRunState.Finished)
+            {
+                return;
+            }
+
             RunState = RunnerRunState.Finished;
             DebugStatus = "주행 종료";
+            RunFinished?.Invoke();
+        }
+
+        public void ResetRunner()
+        {
+            InitializeRunner();
+            RunState = RunnerRunState.Ready;
+            DebugStatus = "러너 준비 중";
         }
 
         private void InitializeRunner()
