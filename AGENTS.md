@@ -1,79 +1,80 @@
 # AGENTS
 
-## Project Summary
+## 프로젝트 요약
 
-- Project name: `Rhythm Passport`
-- Goal: build a seated webcam-controlled Unity runner game for older adults and players with mobility limitations.
-- Current target: complete only the first playable `Game Scene` prototype.
-- Core fantasy: travel through Seoul toward Gyeongbokgung while avoiding obstacles and collecting travel items.
+- 프로젝트 이름: `Rhythm Passport`
+- 목표: 노인과 장애인이 앉은 자세로 웹캠 동작만으로 플레이할 수 있는 Unity 러너 게임을 만든다.
+- 현재 목표: 첫 번째 플레이 가능한 `Game Scene` 프로토타입만 완성한다.
+- 핵심 콘셉트: 서울 도심을 지나 경복궁으로 향하며 장애물을 피하고 여행 아이템을 획득하는 경험을 만든다.
 
-## Source Of Truth
+## 기준 문서
 
-- Primary planning document: `Plan/1차 프로젝트 기획서`
-- Sub-agent request and role note: `mds/0. AGENTS요청.md`
-- Change log: `agent.md`
-- Unity project root: `PassportUnity/`
+- 주요 기획 문서: `Plan/1차 프로젝트 기획서`
+- 서브에이전트 요청 및 역할 문서: `mds/0. AGENTS요청.md`
+- 변경 기록 문서: `agent.md`
+- Unity 프로젝트 루트: `PassportUnity/`
 
-## Working Rules
+## 작업 원칙
 
-- Work phase by phase. Do not build the whole system at once.
-- Prefer functional prototypes before visual polish.
-- Do not add extra scenes or systems unless the user asks for them.
-- Keep gameplay input focused on webcam motion; debug keyboard input must stay optional and separate.
-- Before adding a new script, check whether an existing script already covers the same responsibility.
-- Keep generated Unity files out of tracked work.
+- 작업은 반드시 단계별로 진행한다. 한 번에 전체 시스템을 구현하지 않는다.
+- 시각적 완성도보다 기능적으로 검증 가능한 프로토타입을 우선한다.
+- 사용자가 요청하지 않은 추가 Scene이나 시스템은 만들지 않는다.
+- 실제 플레이 입력은 웹캠 동작 인식에 집중하고, 디버그용 키보드 입력은 분리된 보조 수단으로만 다룬다.
+- 새 스크립트를 추가하기 전에 기존 스크립트와 역할이 겹치는지 먼저 확인한다.
+- Unity 생성 파일은 추적 대상에서 제외한다.
 
-## Tracked Areas
+## 추적 대상
 
 - `PassportUnity/Assets`
 - `PassportUnity/Packages`
 - `PassportUnity/ProjectSettings`
 - `mds/`
+- `Task/`
 - `AGENTS.md`
 - `agent.md`
 
-## Avoid Tracking
+## 추적 제외 대상
 
 - `PassportUnity/Library`
 - `PassportUnity/Temp`
 - `PassportUnity/Logs`
 - `PassportUnity/UserSettings`
-- Generated IDE files such as `*.csproj`, `*.sln`, `*.slnx`
+- `*.csproj`, `*.sln`, `*.slnx` 같은 IDE 자동 생성 파일
 
-## Delivery Expectations Per Task
+## 작업 보고 형식
 
-After each meaningful implementation step, report:
+의미 있는 구현 단위가 끝날 때마다 아래 항목을 정리한다.
 
-1. Completed work
-2. Created files
-3. Updated files
-4. Unity Inspector setup
-5. Test steps
-6. Remaining work
-7. Risks or issues
+1. 완료한 작업
+2. 생성한 파일
+3. 수정한 파일
+4. Unity Inspector 설정 방법
+5. 테스트 방법
+6. 남은 작업
+7. 위험 요소 또는 주의사항
 
-## Active Task Order
+## 현재 작업 순서
 
-1. `mds/tasks/task-01-game-scene-foundation.md`
-2. `mds/tasks/task-02-webcam-and-pose-pipeline.md`
-3. `mds/tasks/task-03-motion-detection.md`
-4. `mds/tasks/task-04-character-runner-core.md`
-5. `mds/tasks/task-05-spawn-score-health.md`
-6. `mds/tasks/task-06-game-flow-ui-results.md`
+1. `Task/01-게임씬-기초구성.md`
+2. `Task/02-웹캠-포즈-파이프라인.md`
+3. `Task/03-동작-인식.md`
+4. `Task/04-캐릭터-러너-코어.md`
+5. `Task/05-스폰-점수-체력.md`
+6. `Task/06-게임흐름-UI-결과.md`
 
-## Phase Strategy
+## 단계 전략
 
-- Task 01 sets the playable scene foundation.
-- Task 02 establishes webcam input and pose landmarks.
-- Task 03 turns pose data into robust gameplay actions.
-- Task 04 connects actions to runner movement.
-- Task 05 adds core challenge, reward, and game-state systems.
-- Task 06 finishes the player loop from start guide to result panel.
+- 1단계는 플레이 가능한 씬의 기초 구조를 만든다.
+- 2단계는 웹캠 입력과 포즈 랜드마크 수집을 안정화한다.
+- 3단계는 포즈 데이터를 실제 게임 입력으로 변환한다.
+- 4단계는 입력을 자동 전진 캐릭터 조작과 연결한다.
+- 5단계는 장애물, 아이템, 점수, 체력으로 핵심 게임성을 만든다.
+- 6단계는 시작 안내부터 결과 패널까지 전체 플레이 흐름을 완성한다.
 
-## Gameplay Clarifications
+## 게임 규칙 해석
 
-- The runner moves forward through the world; obstacles and items stay fixed in world space after spawning.
-- Spawning should happen ahead of the character, and cleanup should happen after objects fall behind the character.
-- `Finish Trigger` arrival is the primary success condition for the first prototype.
-- The base play target is about 60 seconds, with a separate hard fail-safe time limit in the 70 to 90 second range.
-- Combo behavior should be implemented with an explicit rule set during Task 05 because the current planning note is ambiguous.
+- 캐릭터가 월드 안에서 앞으로 이동하고, 장애물과 아이템은 생성 후 월드 좌표에 고정된 상태를 유지한다.
+- 생성은 항상 캐릭터 앞쪽에서 일어나고, 정리는 캐릭터 뒤쪽으로 지난 뒤에 수행한다.
+- 첫 번째 프로토타입의 기본 성공 조건은 `Finish Trigger` 도착이다.
+- 기본 플레이 목표 시간은 약 60초이며, 별도의 안전용 최대 제한 시간은 70초에서 90초 사이로 둔다.
+- 콤보 규칙은 기획서 문구가 모호하므로 5단계 작업에서 명시적인 규칙으로 확정한다.
